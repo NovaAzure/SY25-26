@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Potato Sorter", "Potato Sorter.pyproj", "{E2FDB800-BCCD-4698-80C6-74BBC4CE62FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2FDB800-BCCD-4698-80C6-74BBC4CE62FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2FDB800-BCCD-4698-80C6-74BBC4CE62FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5719155B-0281-4DB5-8FD8-CA264BD2363F}
+	EndGlobalSection
+EndGlobal

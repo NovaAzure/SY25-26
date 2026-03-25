@@ -1,0 +1,6 @@
+Word.txt
+tree
+cat
+car
+five
+seventeen

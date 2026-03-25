@@ -1,0 +1,8 @@
+name = input("Enter your name: ")
+grade = input("Enter your grade:")
+event = input("Enter the event you are doing:")
+print(event)
+time = input("What is your time:")
+print(time)
+school = input("Enter your school:")
+print(school)
