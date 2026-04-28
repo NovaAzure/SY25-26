@@ -31,15 +31,51 @@ def scrape_books_from_page(url):
             'Image URL': image_url
         })
         book_data.append(book_info)
-    return book_data  # Return the list of scraped book data
-book_data = scrape_books_from_page("https://books.toscrape.com")
 
+    linklist = []
+    genrelist = []
+    print("Links found on page:")
+    for link in soup.find_all('a'):
+        href = link.get('href')
+        text = link.text.strip()
+        print(f"Text: {text} | URL: {href}")
+        linklist.append(href)
+        genrelist.append(text)
+
+    return book_data # Return the list of scraped book data
+
+def get_genre(url):
+    try:
+        response = requests.get(url)  # Send a GET request to the URL
+        response.raise_for_status()  # Ensure the request was successful (status code 200)
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")  # Print any error if the request fails
+        return []  # Return an empty list if an error occurs
+
+    soup = BeautifulSoup(response.text, 'html.parser')  # Parse the HTML content using BeautifulSoup
+    books = soup.find_all('article', class_='product_pod')  # Find all 'article' elements representing books
+    linklist = []
+    genrelist = []
+    print("Links found on page:")
+    for link in soup.find_all('a'):
+        href = link.get('href')
+        text = link.text.strip()
+        print(f"Text: {text} | URL: {href}")
+        linklist.append(href)
+        genrelist.append(text)
+
+    return linklist
+
+book_data = scrape_books_from_page("https://books.toscrape.com")
+genrelist = get_genre("https://books.toscrape.com")
+"""
 print("Links found on page:")
 for link in soup.find_all('a'):
     href = link.get('href')
     text = link.text.strip()
     print(f"Text: {text} | URL: {href}")
-
+    """
+"""
 for book in book_data:
     data = book
     print(data['Title'])
@@ -49,3 +85,16 @@ for book in book_data:
     print(data['Rating'] + " Star Rating")
     print(data['Image URL'])
     print("----------")
+"""
+genreask = input("What genre would you like to search for?: ")
+for item in genrelist:
+    if genreask.lower() in item:
+        print(item)
+    else:
+        while genreask.lower() not in item:
+            print("Chosen genre has not been found.")
+            genreask = input("What genre would you like to search for?: ")
+            for item in genrelist:
+                if genreask.lower() in item:
+                    print(item)
+                    break
